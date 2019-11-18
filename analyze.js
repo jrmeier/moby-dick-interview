@@ -14,8 +14,10 @@ function handleLine(line, words) {
     let i = 0;
     const split_line = line.split(" ")
     const reg = new RegExp("([^a-z])|(\r\n|\n|\r)","gm")
-    
-    while(i < split_line.length){
+    // for(let i=0;i < split_line.length; i
+        // ++)
+    // while(i < split_line.length){
+    for( let i=0; i < split_line.length; i++){
         const current_word = split_line[i].toLowerCase().replace(reg,'')
         if( stopwords.includes(current_word) || current_word == ''){
             i++
@@ -61,8 +63,8 @@ function analyze (file_path) {
     
     console.log(`Created new data file at ${newFilePath}`)
 
-    fs.writeFileSync(`${newFilePath}`, JSON.stringify(final))
+    fs.writeFileSync(`${newFilePath}`, JSON.stringify(final),)
 }
 
 
-analyze("mobydick.txt")
+analyze("test.txt")

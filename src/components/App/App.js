@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart } from '../Chart/Chart'
 import './App.css';
 import { ChartControl } from '../Chart/ChartControl/ChartControl';
-import { checkForData } from '../Chart/makeChartDataUtil'
+import { checkForData } from '../Chart/chartDataHelpers'
 
 export class App extends React.Component {  
   constructor(props) {

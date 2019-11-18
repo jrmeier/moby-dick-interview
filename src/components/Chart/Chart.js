@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2';
 import { Cloud } from './Cloud'
-import { makeChartDataUtil, makeCloudDataUtil } from './makeChartDataUtil'
+import { getChartJSData, getCloudData } from './chartDataHelpers'
 
-
-export class Chart extends Component {
-
-    renderChart = () => {
-        const { chartStyle,chartRangeMax } = this.props
-        const data = makeChartDataUtil(chartRangeMax)
+export function Chart(props) {
+        const { chartStyle,chartRangeMax } = props
+        const data = getChartJSData(chartRangeMax)
         
         if(chartStyle === 'Bar'){
             return <Bar data={data} />
@@ -20,15 +17,6 @@ export class Chart extends Component {
             return <Pie data={data} />
         }
 
-        const cloudData = makeCloudDataUtil(chartRangeMax)
-        return <Cloud data={cloudData} />
-        }
+    return <Cloud data={getCloudData(chartRangeMax)} /> 
     
-    render() {
-        return (
-            <div>
-                {this.renderChart()}
-            </div>
-        );
-        }
 }
