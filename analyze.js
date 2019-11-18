@@ -31,19 +31,35 @@ function handleLine(line, words) {
     }
 }
 
+function fileHasData (file_path) {
+    if(!fs.existsSync(file_path)) {
+        return false
+    }
+    const file_data = fs.readFileSync(file_path).toString()
+    return Boolean(Object.keys(file_data))
+}
 
 function analyze (file_path) {
     console.log(`running: ${file_path}`)
+
+    const newFilePath = `./src/${file_path.split(".").shift()}_analyzed.json`
+
+    if(fileHasData(newFilePath)){
+        console.log("Data file already exists!")
+        return
+    }
+    console.log("building new file")
     const file_data = fs.readFileSync(file_path).toString().split(" ")
-
+    console.log("reading file")
     const raw_corpus = file_data.reduce((prev, curr) => handleLine(curr, prev), {})
-
+    console.log("sorting")
     const final = Object.entries(raw_corpus)
         .sort( (a, b) => (a[1] > b[1]) ? -1 : 1)
         .splice(0, 100)
         .reduce( (prev, curr) => (Object.assign(prev, {[curr[0]]: curr[1]})),{})
-    const newFilePath = `${file_path.split(".").shift()}_analyzed.json`
+
     
+    console.log(`Created new data file at ${newFilePath}`)
 
     fs.writeFileSync(`${newFilePath}`, JSON.stringify(final))
 }

@@ -12,12 +12,9 @@ function getRandomColor() {
 
 
 export const makeChartDataUtil = (split=100) => {
-    // check if the file exists
-    if(!Object.keys(data).length) {
-        console.log("Missing data file")
+    if(!checkForData) {
         return null
     }
-
     const labels = Object.keys(data).splice(0,split)
     const values = Object.values(data).splice(0,split)
 
@@ -31,7 +28,12 @@ export const makeChartDataUtil = (split=100) => {
     }
 }
 
-export const makeCloudDataUtil = (split=100)=>{
-
-    return Object.entries(data).splice(0, split).reduce((prev, curr) => prev.concat([{text: curr[0], value: curr[1]}]), [])
+export const checkForData = () => {
+    if(!Object.keys(data).length) {
+        console.log("Missing data file")
+        return null
+    }
+    return true
 }
+
+export const makeCloudDataUtil = (split=100)=> Object.entries(data).splice(0, split).reduce((prev, curr) => prev.concat([{text: curr[0], value: curr[1]}]), [])

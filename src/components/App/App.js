@@ -2,41 +2,58 @@ import React from 'react';
 import { Chart } from '../Chart/Chart'
 import './App.css';
 import { ChartControl } from '../Chart/ChartControl/ChartControl';
+import { checkForData } from '../Chart/makeChartDataUtil'
 
 export class App extends React.Component {  
   constructor(props) {
     super(props)
     this.state = {
       chartRangeMax: 100,
-      // chartStyle: 'Bar'
+      chartStyle: 'Cloud',
+      haveData: false
     }
   }
   handleDataRangeChange = (value) => {
-    console.log("changing the max chart range: ",value)
-    
     this.setState({chartRangeMax: parseInt(value)})
   }
   handleChartStyleChange = (value) => {
-    console.log("loading new chart style: ",value)
-
     this.setState({chartStyle: value})
   }
+
+  componentDidMount = () => {
+    this.setState({ haveData: checkForData()})
+  }
+
+  renderBody = () => {
+    if(this.state.haveData){
+      return (
+      <div className='AppBody'>
+        <ChartControl
+          handleDataRangeChange={this.handleDataRangeChange}
+          handleChartStyleChange={this.handleChartStyleChange}
+        />
+        <Chart
+          chartRangeMax={this.state.chartRangeMax}
+          chartStyle={this.state.chartStyle}
+        />
+    </div>)
+    } 
+    return (
+      <div>
+        Hey you're missing the data file, which probably means it didn't build correctly or it was deleted. 
+        Check out the <a href={'https://github.com/jrmeier/moby-dick-interview/blob/master/README.md'}>README</a>.
+      </div>
+    )
+  }
+
   render() {
+    
     return (
       <div className="App">
         <div className="App-header">
-          🐋 Moby Dick Interview 🐋
+          <span><span role="img" aria-label='Whale'>🐋</span>Moby Dick Interview<span role="img" aria-label='Whale'>🐋</span></span>
         </div>
-        <div className='AppBody'>
-          <ChartControl
-            handleDataRangeChange={this.handleDataRangeChange}
-            handleChartStyleChange={this.handleChartStyleChange}
-            />
-          <Chart 
-            chartRangeMax={this.state.chartRangeMax}
-            chartStyle={this.state.chartStyle}
-            />
-        </div>
+        {this.renderBody()}
       </div>
     );
   }

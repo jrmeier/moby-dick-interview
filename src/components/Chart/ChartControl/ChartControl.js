@@ -6,6 +6,8 @@ export class ChartControl extends Component {
     render() {
         return (
             <div className='ChartControl'>
+                    <h3>Options</h3>
+                <div>
                 Data Range: <select onChange={(e) =>this.props.handleDataRangeChange(e.target.value)}>
                     <option value={10}>0-10</option>
                     <option value={20}>0-20</option>
@@ -18,7 +20,9 @@ export class ChartControl extends Component {
                     <option value={90}>0-90</option>
                     <option value={100}>0-100</option>
                 </select>
+                </div>
 
+                <div>
                 Chart Style: 
                     <select onChange={(e) => this.props.handleChartStyleChange(e.target.value)} >
                         <option value={'Cloud'}>Cloud</option>
@@ -26,6 +30,7 @@ export class ChartControl extends Component {
                         <option value={'Bar'}>Bar</option>
                         <option value={'Pie'}>Pie</option>
                     </select>
+                </div>
             </div>
         );
         }
