@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './ChartControl.css'
 
-export class ChartControl extends Component {
-
-    render() {
+export function ChartControl (props) {
         return (
             <div className='ChartControl'>
                     <h3>Options</h3>
                 <div>
                 Data Range:
                 <div>
-                    Top:<select defaultValue={0} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMin', e.target.value)}>
+                    Top:<select defaultValue={0} onChange={(e) =>props.handleDataRangeChange('chartRangeMin', e.target.value)}>
                     <option value={0}>0</option>
                     <option value={10}>10</option>
                     <option value={20}>20</option>
@@ -24,7 +22,7 @@ export class ChartControl extends Component {
                     <option value={100}>100</option>
                 </select>
                 </div>
-                Bottom:<select defaultValue={100} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMax', e.target.value)}> */}
+                Bottom:<select defaultValue={100} onChange={(e) =>props.handleDataRangeChange('chartRangeMax', e.target.value)}> */}
                     <option value={10}>10</option>
                     <option value={20}>20</option>
                     <option value={30}>30</option>
@@ -40,7 +38,7 @@ export class ChartControl extends Component {
 
                 <div>
                 Chart Style: 
-                    <select onChange={(e) => this.props.handleChartStyleChange(e.target.value)} >
+                    <select onChange={(e) => props.handleChartStyleChange(e.target.value)} >
                         <option value={'Cloud'}>Cloud</option>
                         <option value={'Doughnut'}>Doughnut</option>
                         <option value={'Bar'}>Bar</option>
@@ -49,5 +47,4 @@ export class ChartControl extends Component {
                 </div>
             </div>
         );
-        }
 }

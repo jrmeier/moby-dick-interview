@@ -26,7 +26,6 @@ export class App extends React.Component {
   }
 
   renderBody = () => {
-    console.log(`Viewing range between the top ${this.state.chartRangeMin} and bottom ${this.state.chartRangeMax} by word count.`)
     if(this.state.haveData){
       return (
         <div>
