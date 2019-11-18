@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs')
 
 const stop_words_file = 'stopwords.txt'
 
@@ -11,12 +11,8 @@ const stopwords = fs.readFileSync(stop_words_file).toString().split("\n")
     }, [])
 
 function handleLine(line, words) {
-    let i = 0;
     const split_line = line.split(" ")
     const reg = new RegExp("([^a-z])|(\r\n|\n|\r)","gm")
-    // for(let i=0;i < split_line.length; i
-        // ++)
-    // while(i < split_line.length){
     for( let i=0; i < split_line.length; i++){
         const current_word = split_line[i].toLowerCase().replace(reg,'')
         if( stopwords.includes(current_word) || current_word == ''){

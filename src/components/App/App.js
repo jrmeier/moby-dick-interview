@@ -26,9 +26,10 @@ export class App extends React.Component {
   }
 
   renderBody = () => {
+    console.log(`Viewing range between the top ${this.state.chartRangeMin} and bottom ${this.state.chartRangeMax} by word count.`)
     if(this.state.haveData){
       return (
-      <div className='AppBody'>
+        <div>
         <ChartControl
           handleDataRangeChange={this.handleDataRangeChange}
           handleChartStyleChange={this.handleChartStyleChange}
@@ -38,8 +39,9 @@ export class App extends React.Component {
           chartRangeMin={this.state.chartRangeMin}
           chartStyle={this.state.chartStyle}
         />
-    </div>)
-    } 
+        </div>
+      )
+    }
     return (
       <div>
         Hey you're missing the data file, which probably means it didn't build correctly or it was deleted. 

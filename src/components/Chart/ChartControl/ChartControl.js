@@ -10,7 +10,7 @@ export class ChartControl extends Component {
                 <div>
                 Data Range:
                 <div>
-                    Start:<select defaultValue={0} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMin', e.target.value)}>
+                    Top:<select defaultValue={0} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMin', e.target.value)}>
                     <option value={0}>0</option>
                     <option value={10}>10</option>
                     <option value={20}>20</option>
@@ -24,7 +24,7 @@ export class ChartControl extends Component {
                     <option value={100}>100</option>
                 </select>
                 </div>
-                End:<select defaultValue={100} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMax', e.target.value)}> */}
+                Bottom:<select defaultValue={100} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMax', e.target.value)}> */}
                     <option value={10}>10</option>
                     <option value={20}>20</option>
                     <option value={30}>30</option>
