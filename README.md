@@ -3,17 +3,18 @@ Sorry, you don't actually get to talk a person named Moby Dick.
 
 
 ## Getting Started
-So this should be relatively simple. All you need is 10.5 or greater and you should be good to go. If you don't have the right version of Node.js, I use NVM and its extremely slick.
+So this should be relatively simple. All you need is Node 10.5 or greater and you should be good to go. If you don't have the right version of Node.js, I use NVM its great.
+
+
+Here's the quick and dirty for your copy/paste pleasure: `git clone git@github.com:jrmeier/moby-dick-interview.git && cd ./moby-dick-interview && npm i && npm start`
 
 First get the code 
 
 `git clone git@github.com:jrmeier/moby-dick-interview.git`
 
-Then install the requirements
+Then install
 
 `npm install`
-
-Once that's installed, you'll be to ready to explore the data!
 
 All that's left is to build the data file and start the React app.
 
@@ -30,3 +31,4 @@ Given more time, I wanted impliment a proxy server so there would be an API call
 * Proxy Server
 * Ability to upload own any file
 * More charting options
+* Process file as a stream

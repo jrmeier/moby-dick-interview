@@ -53,6 +53,7 @@ function analyze (file_path) {
     console.log("building new file")
     const file_data = fs.readFileSync(file_path).toString().split(" ")
     console.log("reading file")
+    console.log("this might take a few minutes")
     const raw_corpus = file_data.reduce((prev, curr) => handleLine(curr, prev), {})
     console.log("sorting")
     const final = Object.entries(raw_corpus)

@@ -9,12 +9,13 @@ export class App extends React.Component {
     super(props)
     this.state = {
       chartRangeMax: 100,
+      chartRangeMin: 0,
       chartStyle: 'Cloud',
       haveData: false
     }
   }
-  handleDataRangeChange = (value) => {
-    this.setState({chartRangeMax: parseInt(value)})
+  handleDataRangeChange = (type,value) => {
+    this.setState({[type]: parseInt(value)})
   }
   handleChartStyleChange = (value) => {
     this.setState({chartStyle: value})
@@ -34,6 +35,7 @@ export class App extends React.Component {
         />
         <Chart
           chartRangeMax={this.state.chartRangeMax}
+          chartRangeMin={this.state.chartRangeMin}
           chartStyle={this.state.chartStyle}
         />
     </div>)

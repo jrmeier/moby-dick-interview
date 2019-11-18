@@ -1,3 +1,4 @@
+// this is bad I know
 import data from '../../mobydick_analyzed.json'
 
 
@@ -11,19 +12,19 @@ function getRandomColor() {
 }
 
 
-export const getChartJSData = (split=100) => {
+export const getChartJSData = (min=0, max=100) => {
     if(!checkForData) {
         return null
     }
-    const labels = Object.keys(data).splice(0,split)
-    const values = Object.values(data).splice(0,split)
-
+    
+    const labels = Object.keys(data).splice(min,max)
+    const values = Object.values(data).splice(min,max)
     return {
         labels: labels,
         datasets: [{
             label: "Number of Times Used",
             data: values,
-            backgroundColor: Array.from(Array(split).keys()).map(x=>getRandomColor())
+            backgroundColor: Array.from(values).map(x=>getRandomColor())
         }]
     }
 }
@@ -36,4 +37,4 @@ export const checkForData = () => {
     return true
 }
 
-export const getCloudData = (split=100)=> Object.entries(data).splice(0, split).reduce((prev, curr) => prev.concat([{text: curr[0], value: curr[1]}]), [])
+export const getCloudData = (min, max)=> Object.entries(data).splice(min, max).reduce((prev, curr) => prev.concat([{text: curr[0], value: curr[1]}]), [])

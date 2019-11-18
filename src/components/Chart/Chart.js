@@ -1,11 +1,13 @@
 import React from 'react'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2';
-import { Cloud } from './Cloud'
+
+import ReactWordcloud from 'react-wordcloud';
+
 import { getChartJSData, getCloudData } from './chartDataHelpers'
 
 export function Chart(props) {
-        const { chartStyle,chartRangeMax } = props
-        const data = getChartJSData(chartRangeMax)
+        const { chartStyle, chartRangeMax, chartRangeMin} = props
+        const data = getChartJSData(chartRangeMin, chartRangeMax)
         
         if(chartStyle === 'Bar'){
             return <Bar data={data} />
@@ -17,6 +19,8 @@ export function Chart(props) {
             return <Pie data={data} />
         }
 
-    return <Cloud data={getCloudData(chartRangeMax)} /> 
+
+    return <ReactWordcloud words={getCloudData(chartRangeMin, chartRangeMax)} />
+
     
 }

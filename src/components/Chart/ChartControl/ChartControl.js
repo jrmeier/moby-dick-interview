@@ -8,17 +8,33 @@ export class ChartControl extends Component {
             <div className='ChartControl'>
                     <h3>Options</h3>
                 <div>
-                Data Range: <select onChange={(e) =>this.props.handleDataRangeChange(e.target.value)}>
-                    <option value={10}>0-10</option>
-                    <option value={20}>0-20</option>
-                    <option value={30}>0-30</option>
-                    <option value={40}>0-40</option>
-                    <option value={50}>0-50</option>
-                    <option value={60}>0-60</option>
-                    <option value={70}>0-70</option>
-                    <option value={80}>0-80</option>
-                    <option value={90}>0-90</option>
-                    <option value={100}>0-100</option>
+                Data Range:
+                <div>
+                    Start:<select defaultValue={0} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMin', e.target.value)}>
+                    <option value={0}>0</option>
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={30}>30</option>
+                    <option value={40}>40</option>
+                    <option value={50}>50</option>
+                    <option value={60}>60</option>
+                    <option value={70}>70</option>
+                    <option value={80}>80</option>
+                    <option value={90}>90</option>
+                    <option value={100}>100</option>
+                </select>
+                </div>
+                End:<select defaultValue={100} onChange={(e) =>this.props.handleDataRangeChange('chartRangeMax', e.target.value)}> */}
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={30}>30</option>
+                    <option value={40}>40</option>
+                    <option value={50}>50</option>
+                    <option value={60}>60</option>
+                    <option value={70}>70</option>
+                    <option value={80}>80</option>
+                    <option value={90}>90</option>
+                    <option value={100}>100</option>
                 </select>
                 </div>
 
