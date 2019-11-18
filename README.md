@@ -27,6 +27,10 @@ Now running this the first time is going to be a bit slow. This is where it actu
 
 Once the data file is built and the app is running, head to http://localhost:3000 to see it in action. Be sure to check out all the charting options!
 
+## Troubleshooting
+
+If you run `npm start` and the process completes without building the data file, run `node analyze.js` from the home directory. This will manually create the file. The you're good to run `npm start`.
+
 
 # TODOs
 Given more time, I wanted impliment a proxy server so there would be an API call, but as soon as I started, webpack and babel started to fight me so I decided to opt out.
