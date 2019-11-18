@@ -19,7 +19,14 @@ All that's left is to build the data file and start the React app.
 
 `npm start`
 
-Now running this the first time is going to be a bit slow. This is where it actually entire Moby Dick book is read and analyzed (hint: start [here](https://github.com/jrmeier/moby-dick-interview/blob/master/analyze.js)). The data file will be a JSON file, labeled mobydict_analyzed.json. I removed it from this last commit, just so you could make sure I'm doing real work ;).
+Now running this the first time is going to be a bit slow. This is where it actually entire Moby Dick book is read and analyzed (hint: start [here](https://github.com/jrmeier/moby-dick-interview/blob/master/analyze.js)). The data file will be a JSON file, labeled `mobydict_analyzed.json`. I removed it from this last commit, just so you could make sure I'm doing real work ;).
 
 Once the data file is built and the app is running, head to http://localhost:3000 to see it in action. Be sure to check out all the charting options!
 
+
+# TODOs
+Given more time, I wanted impliment a proxy server so there would be an API call, but as soon as I started, webpack and babel started to fight me so I decided to opt out.
+
+* Proxy Server
+* Ability to upload own any file
+* More charting options
