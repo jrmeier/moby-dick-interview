@@ -1,20 +1,13 @@
-const readline = require('readline');
 const fs = require('fs');
 
-
-
-const file_path = 'mobydick.txt'
 const stop_words_file = 'stopwords.txt'
 
 const stopwords = fs.readFileSync(stop_words_file).toString().split("\n")
     .reduce( (prev, curr) => {
         if(curr[0] == "#" || !curr[0]) {
-            return [...prev]
+            return prev
         }
-        return [
-            ...prev,
-            curr
-        ]
+        return prev.concat(curr)
     }, [])
 
 function handleLine(line, words) {
@@ -49,9 +42,11 @@ function analyze (file_path) {
         .sort( (a, b) => (a[1] > b[1]) ? -1 : 1)
         .splice(0, 100)
         .reduce( (prev, curr) => (Object.assign(prev, {[curr[0]]: curr[1]})),{})
+    const newFilePath = `${file_path.split(".").shift()}_analyzed.json`
+    
 
-    console.log(final)
+    fs.writeFileSync(`${newFilePath}`, JSON.stringify(final))
 }
 
 
-analyze("test.txt")
+analyze("mobydick.txt")

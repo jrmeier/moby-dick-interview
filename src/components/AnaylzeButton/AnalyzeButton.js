@@ -2,13 +2,12 @@ import React from 'react'
 
 import './AnalyzeButton.css'
 
-// import { analyze } from '../../../analyze'
 
 
 export const AnalyzeButton = (state) => {
-    console.log(state.text)
     const handleOnClick = () => {
         console.log('lol clicked')
+        // console.log(data)
     }
     return (
         <button onClick={() => handleOnClick() }
@@ -16,5 +15,6 @@ export const AnalyzeButton = (state) => {
         >
             {state.text}
         </button>
+        
     );
   }
