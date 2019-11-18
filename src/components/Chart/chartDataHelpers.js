@@ -16,7 +16,7 @@ export const getChartJSData = (min=0, max=100) => {
     if(!checkForData) {
         return null
     }
-    
+
     const labels = Object.keys(data).splice(min,max)
     const values = Object.values(data).splice(min,max)
     return {
@@ -37,4 +37,6 @@ export const checkForData = () => {
     return true
 }
 
-export const getCloudData = (min, max)=> Object.entries(data).splice(min, max).reduce((prev, curr) => prev.concat([{text: curr[0], value: curr[1]}]), [])
+export const getCloudData = (min, max)=> 
+    Object.entries(data).splice(min, max)
+    .reduce((prev, curr) => prev.concat([{text: curr[0], value: curr[1]}]), [])
