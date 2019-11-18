@@ -67,4 +67,4 @@ function analyze (file_path) {
 }
 
 
-analyze("test.txt")
+analyze("mobydick.txt")
