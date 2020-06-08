@@ -1,6 +1,8 @@
 # 🐋 Moby Dick Interview 🐋
 Sorry, you don't actually get to talk a person named Moby Dick. 
 
+# Project Requirements
+Pick any programming language of your choice and test-drive creating a list of the top 100 most frequently occurring words (excluding stop words) paired with the count of occurrences of the word, found in the text for Herman Melville's book Moby Dick. 
 
 ## Getting Started
 So this should be relatively simple. All you need is Node 10.5 or greater and you should be good to go. If you don't have the right version of Node.js, I use NVM its great.
