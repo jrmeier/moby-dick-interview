@@ -1,7 +1,7 @@
 # 🐋 Moby Dick Interview 🐋
 Sorry, you don't actually get to talk a person named Moby Dick. 
 
-# Project Requirements
+## Project Requirements
 Pick any programming language of your choice and test-drive creating a list of the top 100 most frequently occurring words (excluding stop words) paired with the count of occurrences of the word, found in the text for Herman Melville's book Moby Dick. 
 
 ## Getting Started
